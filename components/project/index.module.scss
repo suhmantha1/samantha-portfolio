@@ -1,0 +1,81 @@
+@use "mixins" as m;
+@use "variables" as v;
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  opacity: 1;
+  transition: 0.4s ease-in-out;
+
+  &.inactive {
+    opacity: 0.3;
+  }
+
+  @include m.breakpoint(v.$md) {
+    &:hover:not(.progress) {
+      .arrow {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+  }
+
+  .image {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 75%;
+    background-color: rgba(v.$white, 0.3);
+  }
+
+  .progress {
+    pointer-events: none;
+  }
+
+  .progressOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(v.$blue, 0.9);
+
+    span {
+      border: 2px solid v.$white;
+      padding: 10px;
+    }
+  }
+
+  .titleWrapper {
+    margin-top: 15px;
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+    width: 100%;
+
+    .title {
+      width: 100%;
+
+      @include m.breakpoint(v.$md) {
+        width: calc(100% - 30px);
+      }
+    }
+  }
+
+  .arrow {
+    display: none;
+    fill: v.$white;
+    width: 24px;
+    height: 24px;
+    transform: translateX(-10px);
+    opacity: 0;
+    transition: 0.4s ease-in-out;
+
+    @include m.breakpoint(v.$md) {
+      display: block;
+    }
+  }
+}

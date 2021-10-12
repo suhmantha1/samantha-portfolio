@@ -1,0 +1,16 @@
+//COLORS
+$blue: #467599;
+$white: #ffffff;
+
+// BREAKPOINTS
+$mobile: 480px;
+$tablet: 768px;
+$laptop: 1024px;
+$sm: $mobile;
+$md: $tablet;
+$lg: $laptop;
+$breakpoints: (
+  sm: $sm,
+  md: $md,
+  lg: $lg,
+);
